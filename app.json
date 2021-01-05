@@ -1,0 +1,12 @@
+{
+  "name": "RewardsApp",
+  "displayName": "RewardsApp",
+  "expo": {
+    "name": "RewardsApp",
+    "slug": "RewardsApp",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
