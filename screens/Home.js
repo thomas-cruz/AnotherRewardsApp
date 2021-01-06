@@ -11,35 +11,24 @@ import {
     TouchableOpacity, 
     View 
 } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
 const{ width, height } = Dimensions.get('window');
-
-export default function Login({ navigation }) {
+export default function Home() {
   return (
-    <View style={[styles.container, {alignSelf: 'center',}]}>
+    <View style={[styles.container,{alignSelf: 'center',}]}>
         <ImageBackground source={require("../resources/cloud_bottom.jpg")} style={[styles.container,{minWidth: width, flex:1}]}>
             <Image source={require("../resources/user_login_icon.png")} style={styles.icon}/>
-            <Text style={styles.welcomeText}>Welcome!</Text>
+            <Text style={styles.welcomeText}>Welcome Home!</Text>
         </ImageBackground>
-        <View style={[styles.container, {backgroundColor: 'white', width: width, marginBottom: 40,  marginTop: -30}]}>
-            <TextInput 
-                autoCapitalize='none'
-                autoCorrect={false}
-                returnKeyType='next'
-                placeholder="Type your username here" 
-                style={styles.input}
-            />
-            <TextInput 
-                autoCapitalize='none'
-                autoCorrect={false}
-                returnKeyType='next'
-                placeholder="Type your password here" 
-                style={styles.input}
-                secureTextEntry={true}
-            />
+        <View style={[styles.container, {flexDirection:'row',backgroundColor: 'white', width: width, marginBottom: 40,  marginTop: -30}]}>
             <TouchableOpacity 
-                onPress={() => navigation.navigate('Home')}
+                style={styles.loginButton}
+            >
+                <Text style={{color: 'white',  alignSelf: 'center'}}>Login</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.registerButton}>
+                <Text style={{color: 'white', alignSelf: 'center'}}>Register</Text>
+            </TouchableOpacity>
+            <TouchableOpacity 
                 style={styles.loginButton}
             >
                 <Text style={{color: 'white',  alignSelf: 'center'}}>Login</Text>
@@ -56,10 +45,10 @@ const styles = StyleSheet.create({
     container: {
         alignItems: 'center',
         alignContent: 'center',
-        justifyContent: 'center',
     },
     icon: {
-        marginTop: -20,
+        justifyContent: 'flex-start',
+        marginTop: 15,
         maxWidth: '30%',
         maxHeight:'30%',
         padding: 0,
@@ -82,7 +71,6 @@ const styles = StyleSheet.create({
         margin: 5,
         padding: 10,
         textAlign: 'center',
-        width: 240,
     },
     registerButton:{
         backgroundColor: 'red',
@@ -90,7 +78,6 @@ const styles = StyleSheet.create({
         margin: 5,
         padding: 10,
         textAlign: 'center',
-        width: 240,
     },
     welcomeText: {
         color: 'white',
