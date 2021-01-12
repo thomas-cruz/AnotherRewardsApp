@@ -11,9 +11,9 @@ import {
     TouchableOpacity, 
     View 
 } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/FontAwesome';
 const{ width, height } = Dimensions.get('window');
-export default function Home({ navigation }) {
+export default function Profile() {
   return (
     <View style={[styles.container,{alignSelf: 'center',}]}>
         <ImageBackground source={require("../resources/cloud_bottom.jpg")} style={[styles.container,{minWidth: width, flex:1}]}>
@@ -25,24 +25,19 @@ export default function Home({ navigation }) {
                 colors={['#4c669f', '#3b5998', '#192f6a']}
                 style={styles.homeButton}
             >
-                <Icon name='sync' color='white' size={50} style={styles.icon}/>
-                <Text style={{alignSelf: 'center', color:'white', marginTop: -5, marginBottom: 20}}>Spin</Text>
+                <Icon name='sync' color='white' size={30}/>
             </LinearGradient>
             <LinearGradient 
                 colors={['#4c669f', '#3b5998', '#192f6a']}
                 style={styles.homeButton}
             >
-                <TouchableOpacity onPress={() => navigation.navigate('Scratch')}>
-                    <Icon name='color-wand-outline' color='white' size={50} style={styles.icon}/>
-                    <Text style={{alignSelf: 'center', color:'white', marginTop: -5, marginBottom: 20}}>Scratch</Text>
-                </TouchableOpacity>
+                <Icon name='sync' color='white' size={30}/>
             </LinearGradient>
             <LinearGradient
                 colors={['#4c669f', '#3b5998', '#192f6a']} 
                 style={styles.homeButton}
             >
-                <Icon name='sunny-outline' color='white' size={50} style={styles.icon}/>
-                <Text style={{alignSelf: 'center', color:'white', marginTop: -5, marginBottom: 20}}>Daily</Text>
+                <Icon name='sync' color='white' size={30}/>
             </LinearGradient>
             <LinearGradient 
                 colors={['#4c669f', '#3b5998', '#192f6a']}
@@ -63,7 +58,10 @@ const styles = StyleSheet.create({
     icon: {
         alignSelf: 'center',
         margin: 0,
+        height: 50,
+        width: 50,
         padding: 0,
+        resizeMode: 'contain',
     },
     iconView: {
         backgroundColor: 'white', 
