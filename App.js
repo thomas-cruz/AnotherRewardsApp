@@ -10,6 +10,7 @@ import Home from './screens/Home';
 import Profile from './screens/Profile';
 import History from './screens/History';
 import Scratch from './screens/Scratch';
+import Spinner from './screens/Spinner';
 
 
 const Stack = createStackNavigator();
@@ -61,6 +62,7 @@ function App() {
         <Stack.Screen name="Login" component={Login}/>
         <Stack.Screen name="Home" component={HomeTabs} />
         <Stack.Screen name="Scratch" component={Scratch}/>
+        <Stack.Screen name="Spinner" component={Spinner}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
