@@ -1,10 +1,10 @@
-import LinearGradient from 'react-native-linear-gradient';
 import React from 'react';
 import { 
     Dimensions, 
     Image, 
     ImageBackground, 
     KeyboardAvoidingView, 
+    ScrollView,
     StyleSheet, 
     Text, 
     TextInput, 
@@ -12,40 +12,70 @@ import {
     View 
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { RadioButton } from 'react-native-paper';
 const{ width, height } = Dimensions.get('window');
 export default function Profile() {
+  const [checked, setChecked] = React.useState('first');
   return (
     <View style={[styles.container,{alignSelf: 'center',}]}>
         <ImageBackground source={require("../resources/cloud_bottom.jpg")} style={[styles.container,{minWidth: width, flex:1}]}>
             <Image source={require("../resources/user_login_icon.png")} style={styles.profileIcon}/>
             <Text style={styles.welcomeText}>Welcome Home!</Text>
         </ImageBackground>
-        <View style={[styles.iconView]}>
-            <LinearGradient 
-                colors={['#4c669f', '#3b5998', '#192f6a']}
-                style={styles.homeButton}
-            >
-                <Icon name='sync' color='white' size={30}/>
-            </LinearGradient>
-            <LinearGradient 
-                colors={['#4c669f', '#3b5998', '#192f6a']}
-                style={styles.homeButton}
-            >
-                <Icon name='sync' color='white' size={30}/>
-            </LinearGradient>
-            <LinearGradient
-                colors={['#4c669f', '#3b5998', '#192f6a']} 
-                style={styles.homeButton}
-            >
-                <Icon name='sync' color='white' size={30}/>
-            </LinearGradient>
-            <LinearGradient 
-                colors={['#4c669f', '#3b5998', '#192f6a']}
-                style={styles.homeButton}
-            >
-                <Icon name='sync' color='white' size={30}/>
-            </LinearGradient>
-        </View>
+        <ScrollView style={{flex:1}}>
+            <TextInput 
+                autoCapitalize='none'
+                autoCorrect={false}
+                returnKeyType='next'
+                placeholder="First Name" 
+                style={styles.input}
+            />
+            <TextInput 
+                autoCapitalize='none'
+                autoCorrect={false}
+                returnKeyType='next'
+                placeholder="Last Name" 
+                style={styles.input}
+            />
+            <View style={{flexDirection: 'row', alignContent: 'center'}}>
+                <RadioButton
+                    value="first"
+                    status={ checked === 'first' ? 'checked' : 'unchecked' }
+                    onPress={() => setChecked('first')}
+                />
+                <Text style={{margin: 10, fontSize: 15}}>{'Male'}</Text>
+            </View>
+            <View style={{flexDirection: 'row', alignContent: 'center'}}>
+                <RadioButton
+                    value="second"
+                    status={ checked === 'second' ? 'checked' : 'unchecked' }
+                    onPress={() => setChecked('second')}
+                />
+                <Text style={{margin: 10, fontSize: 15}}>{'Female'}</Text>
+            </View>
+            <TextInput 
+                autoCapitalize='none'
+                autoCorrect={false}
+                returnKeyType='next'
+                placeholder="Birthday" 
+                style={styles.input}
+            />
+            <TextInput 
+                autoCapitalize='none'
+                autoCorrect={false}
+                returnKeyType='next'
+                placeholder="Username" 
+                style={styles.input}
+            />
+            <TextInput 
+                autoCapitalize='none'
+                autoCorrect={false}
+                returnKeyType='next'
+                placeholder="Password" 
+                style={styles.input}
+                secureTextEntry={true}
+            />
+        </ScrollView>
     </View>
   );
 }

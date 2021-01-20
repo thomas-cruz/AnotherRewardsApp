@@ -130,12 +130,16 @@ const styles = StyleSheet.create({
     item: {
         alignContent: 'center',
         backgroundColor: 'lightblue',
+        borderRadius: 30,
         color: 'black',
         flexDirection:'row',
         justifyContent: 'center',
         marginVertical: 8,
         marginHorizontal: 16,
         padding: 20,
+        shadowColor: 'black',
+        shadowOffset: {width: 0, height: 1},
+        shadowRadius: 5,
     },
     title: {
         fontSize: 18,
