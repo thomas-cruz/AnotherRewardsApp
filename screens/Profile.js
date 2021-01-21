@@ -17,12 +17,22 @@ const{ width, height } = Dimensions.get('window');
 export default function Profile() {
   const [checked, setChecked] = React.useState('first');
   return (
-    <View style={[styles.container,{alignSelf: 'center',}]}>
+    <View style={[styles.container,{ alignSelf: 'center', flex: 1 }]}>
         <ImageBackground source={require("../resources/cloud_bottom.jpg")} style={[styles.container,{minWidth: width, flex:1}]}>
             <Image source={require("../resources/user_login_icon.png")} style={styles.profileIcon}/>
-            <Text style={styles.welcomeText}>Welcome Home!</Text>
+            <Text style={styles.welcomeText}>Your Profile</Text>
         </ImageBackground>
-        <ScrollView style={{flex:1}}>
+        <ScrollView 
+            style={{ 
+                backgroundColor: 'white',
+                flex:1,
+                width: width,
+            }} 
+            contentContainerStyle={{
+                flexGrow: 1,
+                padding: 20,
+            }}
+        >
             <TextInput 
                 autoCapitalize='none'
                 autoCorrect={false}
@@ -75,6 +85,22 @@ export default function Profile() {
                 style={styles.input}
                 secureTextEntry={true}
             />
+            <TouchableOpacity style={{
+                alignContent: 'center',
+                backgroundColor: 'lightblue',
+                borderRadius: 10,
+                justifyContent: 'center',
+                marginTop: 15,
+                padding: 20,
+            }}>
+                <Text style={{
+                    alignSelf: 'center',
+                    color: 'black',
+                    fontSize: 18,
+                }}>
+                    {'Submit'}
+                </Text>
+            </TouchableOpacity>
         </ScrollView>
     </View>
   );
@@ -110,7 +136,6 @@ const styles = StyleSheet.create({
         shadowColor: 'black',
         shadowOffset: {width: 0, height: 1},
         shadowRadius: 5,
-        width: 240,
     },
     homeButton:{
         backgroundColor: '#003aae',
@@ -123,7 +148,7 @@ const styles = StyleSheet.create({
     },
     profileIcon: {
         justifyContent: 'flex-start',
-        marginTop: 15,
+        marginTop: 40,
         maxWidth: '30%',
         maxHeight:'30%',
         padding: 0,

@@ -53,7 +53,7 @@ export default function Home({ navigation }) {
                     colors={['#4c669f', '#3b5998', '#192f6a']} 
                     style={styles.homeButton}
                 >
-                    <TouchableOpacity onPress={() => navigation.navigate('Spinner')}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Daily')}>
                         <Icon name='sunny-outline' color='white' size={50} style={styles.icon}/>
                         <Text style={{alignSelf: 'center', color:'white', marginTop: -5, marginBottom: 20}}>Daily</Text>
                     </TouchableOpacity>
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
     },
     profileIcon: {
         justifyContent: 'flex-start',
-        marginTop: 15,
+        marginTop: 40,
         maxWidth: '30%',
         maxHeight:'30%',
         padding: 0,

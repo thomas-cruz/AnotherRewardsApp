@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
     },
     profileIcon: {
         justifyContent: 'flex-start',
-        marginTop: 15,
+        marginTop: 40,
         maxWidth: '30%',
         maxHeight:'30%',
         padding: 0,
