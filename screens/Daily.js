@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { 
     Dimensions, 
     Image, 
@@ -14,31 +14,44 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome';
 import ConfettiCannon from 'react-native-confetti-cannon';
 const{ width, height } = Dimensions.get('window');
-export default function Daily() {
-  const [checked, setChecked] = React.useState('first');
-  return (
-    <View style={[styles.container,{ alignSelf: 'center', flex: 1 }]}>
-        <ImageBackground source={require("../resources/cloud_bottom.jpg")} style={[styles.container,{minWidth: width, flex:1}]}>
-            <Image source={require("../resources/user_login_icon.png")} style={styles.profileIcon}/>
-            <Text style={styles.welcomeText}>Your Profile</Text>
-        </ImageBackground>
-        <ConfettiCannon count={200} origin={{x: -10, y: 0}} />
-        <Modal animationType = {"slide"} transparent = {false}
-               visible = {this.state.modalVisible}
-               onRequestClose = {() => { console.log("Modal has been closed.") } }>
-               
-               <View style = {styles.modal}>
-                  <Text style = {styles.text}>Modal is open!</Text>
-                  
-                  <TouchableOpacity onPress = {() => {
-                     this.toggleModal(!this.state.modalVisible)}}>
-                     
-                     <Text style = {styles.text}>Close Modal</Text>
-                  </TouchableOpacity>
-               </View>
+export default class Daily extends React.Component {
+    constructor(props){
+        super(props);
+    }
+    state = {
+        modalVisible: false
+    }
+    toggleModal(visible) {
+        this.setState({ modalVisible: visible });
+     }
+
+    render(){
+    // const [checked, setChecked] = React.useState('first');
+    return (
+        <View style={[styles.container,{ alignSelf: 'center', flex: 1 }]}>
+            <ImageBackground source={require("../resources/cloud_bottom.jpg")} style={[styles.container,{minWidth: width, flex:1}]}>
+                <Image source={require("../resources/user_login_icon.png")} style={styles.profileIcon}/>
+                <Text style={styles.welcomeText}>Daily Rewards</Text>
+            </ImageBackground>
+            <ConfettiCannon count={200} origin={{x: -10, y: 0}} />
+            <Modal animationType = {"slide"} transparent = {false}
+                visible = {this.state.modalVisible}
+                onRequestClose = {() => { console.log("Modal has been closed.") } }>
+                   
+                    <View style = {styles.modal}>
+                        <Text style = {styles.text}>Modal is open!</Text>
+                      
+                        <TouchableOpacity onPress = {() => {
+                          this.toggleModal(!this.state.modalVisible)}}>
+                         
+                            <Text style = {styles.text}>Close Modal</Text>
+                        </TouchableOpacity>
+                    </View>
             </Modal>
-    </View>
-  );
+        </View>
+      );
+  };
+  
 }
 
 const styles = StyleSheet.create({
