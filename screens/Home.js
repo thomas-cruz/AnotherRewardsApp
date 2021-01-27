@@ -1,5 +1,5 @@
 import LinearGradient from 'react-native-linear-gradient';
-import React from 'react';
+import React, {useState} from 'react';
 import { 
     Dimensions, 
     Image, 
@@ -14,6 +14,7 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons';
 const{ width, height } = Dimensions.get('window');
 export default function Home({ navigation }) {
+    const [visited, setVisited] = useState(false);
     React.useEffect(
         () =>
           navigation.addListener('beforeRemove', (e) => {
@@ -53,7 +54,10 @@ export default function Home({ navigation }) {
                     colors={['#4c669f', '#3b5998', '#192f6a']} 
                     style={styles.homeButton}
                 >
-                    <TouchableOpacity onPress={() => navigation.navigate('Daily')}>
+                    <TouchableOpacity onPress={() => {
+                        navigation.navigate('Daily', {visited: visited});
+                        setVisited(true);
+                    }}>
                         <Icon name='sunny-outline' color='white' size={50} style={styles.icon}/>
                         <Text style={{alignSelf: 'center', color:'white', marginTop: -5, marginBottom: 20}}>Daily</Text>
                     </TouchableOpacity>
