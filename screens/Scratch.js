@@ -16,7 +16,7 @@ export default class Scratch extends Component {
             this.setState({ status: percent });
           }}
           onEnd={() => {
-            Alert.alert("OHAIYOU!");
+            Alert.alert("You have earned "+Math.floor(Math.random() * 100)+" points!");
           }}
           maxPercent={50}
           style={{
@@ -28,7 +28,6 @@ export default class Scratch extends Component {
           color={"gray"}
         >
             <Icon name='money' size={200}/>
-            <Text style={{ fontSize: 20 }}>Hello World!!!</Text>
         </ScratchCard>
       </View>
     );
